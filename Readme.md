@@ -1,7 +1,7 @@
 # Личный проект «Техномарт»
 
-* Студент: [Александр](https://up.htmlacademy.ru/htmlcss/29/user/1601657).
-* Наставник: `Неизвестно`.
+* Студент: [Александр Торбек](https://up.htmlacademy.ru/htmlcss/29/user/1601657).
+* Наставник: [Павел Карачев](https://htmlacademy.ru/profile/id198655).
 
 ---
 
