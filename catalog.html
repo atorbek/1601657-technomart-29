@@ -8,18 +8,22 @@
 </head>
   <body>
     <header class="main-header">
-      <div class="main-header__top">
-        <div class="container">
+      <div class="main-header__top main-header-top">
+        <div class="container main-header-top__wrapper">
           <a class="logo" href="">Техномарт</a>
           <!-- Здесь будет форма поиска -->
+          <div class="search"></div>
           <ul class="list main-header__links">
-            <li class="list__item main-header__links-item"><a class="list__link" href="">Закладки: 0</a></li>
-            <li class="list__item main-header__links-item"><a class="list__link" href="">Корзина: 0</a></li>
+            <li class="list__item main-header__links-item">
+              <a class="list__link" href="">Закладки: 0</a>
+            </li>
+            <li class="list__item main-header__links-item">
+              <a class="list__link" href="">Корзина: 0</a>
+            </li>
           </ul>
-          <a href="" class="button main-header__button">Оформить заказ</a>
+          <button class="button main-header__button_color_green">Оформить заказ</button>
         </div>
       </div>
-
       <div class="container">
         <div class="main-header__middle">
           <p class="main-header__text">
@@ -45,9 +49,9 @@
             </ul>
           </div>
         </div>
-        <div class="navigation main-header__bottom">
+        <div class="main-header__bottom">
           <nav class="main-navigation">
-            <ul class="list navigation__list">
+            <ul class="list main-navigation__list">
               <li class="list__item main-navigation__item">
                 <a class="list__link main-navigation_link" href="index.html">Главная</a>
               </li>
@@ -225,19 +229,19 @@
       </section>
     </main>
     <footer class="page-footer footer">
-      <div class="container">
-        <div class="footer__top">
+      <div class="footer__top footer-top">
+        <div class="container footer-top__wrapper">
           <a href="" class="logo footer__logo">Техномарт</a>
           <div class="navigation footer-top__navigation">
-            <ul class="list">
+            <ul class="list footer-top__list">
               <li class="list__item footer-top__item">
-                <a class="list__link footer-top__link" href="">Компания</a>
+                <a class="list__link footer-top__link" href="index.html">Компания</a>
               </li>
               <li class="list__item footer-top__item">
                 <a class="list__link footer-top__link" href="">Новости</a>
               </li>
               <li class="list__item footer-top__item">
-                <a class="list__link footer-top__link" href="catalog.html">Каталог</a>
+                <a class="list__link footer-top__link" href="">Каталог</a>
               </li>
               <li class="list__item footer-top__item">
                 <a class="list__link footer-top__link" href="">Доставка</a>
@@ -248,61 +252,63 @@
             </ul>
           </div>
         </div>
-        <div class="footer__middle">
+      </div>
+      <div class="footer__middle footer-middle">
+        <div class="container footer-middle__wrapper">
           <h2 class="visually-hidden">Как нас найти</h2>
-          <p class="contact">г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8 <a class="contact__phone" href="tel:+78125550555">+7 (812) 555-05-55</a></p>
-          <div class="navigation footer-navigation-middle">
-            <ul class="list">
-              <li class="list__item footer-navigation-middle__item">
+          <p class="contact footer-middle__contact">г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8 <a class="contact__phone" href="tel:+78125550555">+7 (812) 555-05-55</a></p>
+          <div class="footer-middle__navigation footer-middle-navigation">
+            <ul class="list footer-middle-navigation__list">
+              <li class="list__item footer-middle-navigation__item">
                 <a class="list__link footer-middle-navigation__link" href="">Материалы</a>
               </li>
-              <li class="list__item footer-navigation-middle__item">
+              <li class="list__item footer-middle-navigation__item">
                 <a class="list__link footer-middle-navigation__link" href="">Техника</a>
               </li>
-              <li class="list__item footer-navigation-middle__item">
+              <li class="list__item footer-middle-navigation__item">
                 <a class="list__link footer-middle-navigation__link" href="">Инструмент</a>
               </li>
-              <li class="list__item footer-navigation-middle__item">
+              <li class="list__item footer-middle-navigation__item">
                 <a class="list__link footer-middle-navigation__link" href="">Спецпредложения</a>
               </li>
             </ul>
           </div>
         </div>
-        <div class="footer__bottom">
-          <div class="container">
-            <p class="footer__copyright">
-              © 2010–2019 Компания «Техномарт»<br>
-              Все права защищены
-            </p>
-            <div class="social footer__social">
-              <h2 class="visually-hidden">Давайте дружить!</h2>
-              <ul class="list social-list">
-                <li class="list-item social-list__item">
-                  <a class="list-link" href="">
-                    <span class="visually-hidden">Вконтакте</span>
-                  </a>
-                </li>
-                <li class="list-item footer__links-item">
-                  <a class="list-link" href="">
-                    <span class="visually-hidden">Facebook</span>
-                  </a>
-                </li>
-                <li class="list-item footer__links-item">
-                  <a class="list-link" href="">
-                    <span class="visually-hidden">Instagram</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <p class="footer__feedback">
-              Обратная связь:
-              <a class="footer__link" href="mailto:mail@htmlacademy.ru">mail@htmlacademy.ru</a>
-            </p>
-            <p class="footer__copyright">
-              Разработано:
-              <a class="footer__link" href="https://htmlacademy.ru">HTML Academy</a>
-            </p>
+      </div>
+      <div class="footer__bottom footer-bottom">
+        <div class="container footer-bottom__wrapper">
+          <p class="footer__copyright">
+            © 2010–2019 Компания «Техномарт»<br>
+            Все права защищены
+          </p>
+          <div class="social footer__social">
+            <h2 class="visually-hidden">Давайте дружить!</h2>
+            <ul class="list social-list">
+              <li class="list-item social-list__item">
+                <a class="list-link" href="">
+                  <span class="visually-hidden">Вконтакте</span>
+                </a>
+              </li>
+              <li class="list-item footer__links-item">
+                <a class="list-link" href="">
+                  <span class="visually-hidden">Facebook</span>
+                </a>
+              </li>
+              <li class="list-item footer__links-item">
+                <a class="list-link" href="">
+                  <span class="visually-hidden">Instagram</span>
+                </a>
+              </li>
+            </ul>
           </div>
+          <p class="footer__feedback">
+            Обратная связь:<br>
+            <a class="footer__link" href="mailto:mail@htmlacademy.ru">mail@htmlacademy.ru</a>
+          </p>
+          <p class="footer__copyright">
+            Разработано:<br>
+            <a class="footer__link" href="https://htmlacademy.ru">HTML Academy</a>
+          </p>
         </div>
       </div>
     </footer>
