@@ -10,23 +10,25 @@
     <header class="main-header">
       <div class="main-header__top main-header-top">
         <div class="container main-header-top__wrapper">
-          <a class="logo" href="">Техномарт</a>
+          <a class="logo main-header-top__logo" href="">Техномарт</a>
           <!-- Здесь будет форма поиска -->
           <div class="search"></div>
-          <ul class="list main-header__links">
-            <li class="list__item main-header__links-item">
-              <a class="list__link" href="">Закладки: 0</a>
-            </li>
-            <li class="list__item main-header__links-item">
-              <a class="list__link" href="">Корзина: 0</a>
-            </li>
-          </ul>
-          <button class="button main-header__button_color_green">Оформить заказ</button>
+          <div class="user-panel main-header-top__user-panel">
+            <ul class="list user-panel__list">
+              <li class="list__item user-panel__item">
+                <a class="list__link" href="">Закладки: 0</a>
+              </li>
+              <li class="list__item user-panel__item">
+                <a class="list__link" href="">Корзина: 0</a>
+              </li>
+            </ul>
+            <button class="button user-panel__button">Оформить заказ</button>
+          </div>
         </div>
       </div>
       <div class="container">
-        <div class="main-header__middle">
-          <p class="main-header__text">
+        <div class="main-header__middle main-header-middle">
+          <p class="main-header-middle__text">
             <i>
               Интернет-магазин<br>
               строительных материалов<br>
@@ -37,7 +39,7 @@
             <a href="tel:+78125550555" class="contact__phone main-header__phone"> +7 (812) 555-05-55 </a><br>
             г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8
           </p>
-          <div class="auth main-header__auth">
+          <div class="auth main-header-middle__auth">
             <a href="" class="button auth__button">Равшан Джамшутович</a>
             <ul class="auth__list">
               <li class="auth__item">
@@ -89,7 +91,7 @@
               </a>
             </li>
             <li class="list__item breadcrumbs__item">
-              <a class="breadcrumbs__link" href="catalog.html">Каталог</a>
+              <a class="breadcrumbs__link" href="">Каталог</a>
             </li>
             <li class="list__item breadcrumbs__item">
               <a class="breadcrumbs__link" href="">Инструмент</a>
@@ -235,7 +237,7 @@
           <div class="navigation footer-top__navigation">
             <ul class="list footer-top__list">
               <li class="list__item footer-top__item">
-                <a class="list__link footer-top__link" href="index.html">Компания</a>
+                <a class="list__link footer-top__link" href="">Компания</a>
               </li>
               <li class="list__item footer-top__item">
                 <a class="list__link footer-top__link" href="">Новости</a>
@@ -301,7 +303,7 @@
               </li>
             </ul>
           </div>
-          <p class="footer__feedback">
+          <p class="footer__feedback footer__feedback_align_right">
             Обратная связь:<br>
             <a class="footer__link" href="mailto:mail@htmlacademy.ru">mail@htmlacademy.ru</a>
           </p>
