@@ -43,8 +43,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: "PT Sans", "Arial", sans-serif;
-  font-size: 13px;
-  line-height: 24px;
+  font-size: calc(var(--size-text-s) - 2px);
+  line-height: var(--size-line-height-xl);
   color: var(--basic-black);
   background-color: var(--basic-white);
   background-position: top center;
@@ -95,6 +95,26 @@ body {
   --special-blue-light: #3bbce3;
   --special-violet-light: #dc91d8;
   --special-green-light: #8ef78f;
+
+  /* Размер текста */
+
+  --size-text-xxxs: 3px;
+  --size-text-xxs: 6px;
+  --size-text-xs: 9px;
+  --size-text-s: 15px;
+  --size-text-m: 18px;
+  --size-text-l: 24px;
+  --size-text-xl: 27px;
+  --size-text-xxl: 36px;
+  --size-text-xxxl: 45px;
+  --size-text-xxxxl: 51px;
+
+  /* Межстрочный интервал */
+
+  --size-line-height-m: 18px;
+  --size-line-height-l: 24px;
+  --size-line-height-xl: 30px;
+  --size-line-height-xxl: 36px;
 }
 
 a {
@@ -104,6 +124,10 @@ a {
 img {
   max-width: 100%;
   height: auto;
+}
+
+button:focus {
+  outline:0;
 }
 
 /* Grid */
@@ -149,8 +173,8 @@ img {
 
 .logo {
   font-family: "Cuprum", "Arial", sans-serif;
-  font-size: 24px;
-  line-height: 24px;
+  font-size: var(--size-text-l);
+  line-height: var(--size-line-height-xl);
   text-transform: uppercase;
   color: var(--basic-white);
   box-shadow: inset 0 -5px 0 rgba(var(--basic-black-rgb), 0.24);
@@ -170,8 +194,8 @@ img {
 
 .list__item {
   font-family: "Cuprum", "Arial", sans-serif;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: var(--size-text-m);
+  line-height: var(--size-line-height-xl);
   color: var(--basic-white);
 }
 
@@ -184,8 +208,8 @@ img {
 
 .button {
   font-family: "Cuprum", "Arial", sans-serif;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: var(--size-text-m);
+  line-height: var(--size-line-height-xl);
   text-align: center;
   vertical-align: middle;
   color: var(--basic-white);
@@ -194,20 +218,12 @@ img {
   background-color: var(--basic-green);
 }
 
-.button:hover {
-  background-color: var(--basic-greenlight);
-}
-
-.button:active {
-  color: rgba(var(--basic-white-rgb), 0.5);
-}
-
 /* Contact */
 
 .contact {
   font-family: "Cuprum", "Arial", sans-serif;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: var(--size-text-m);
+  line-height: var(--size-line-height-xl);
   color: var(--basic-white);
 }
 
@@ -225,14 +241,14 @@ img {
 
 .item-gallery__title {
   font-family: "Cuprum Bold", "Arial", sans-serif;
-  font-size: 36px;
-  line-height: 36px;
+  font-size: var(--size-text-xxl);
+  line-height: var(--size-line-height-xxl);
   color: var(--basic-white);
   text-transform: uppercase;
 }
 
 .item-gallery__text {
-  font-size: 18px;
+  font-size: var(--size-text-m);
   color: var(--basic-white);
 }
 
@@ -253,8 +269,8 @@ img {
 
 .title {
   font-family: "Cuprum", "Arial", sans-serif;
-  font-size: 30px;
-  line-height: 30px;
+  font-size: calc(var(--size-text-xl) + 3px);
+  line-height: var(--size-line-height-xl);
   font-weight: normal;
   text-transform: uppercase;
   color: var(--basic-blue);
@@ -268,8 +284,8 @@ img {
 
 .tabs__tab {
   font-family: "Cuprum", "Arial", sans-serif;
-  font-size: 21px;
-  line-height: 30px;
+  font-size: calc(var(--size-text-m) + 3px);
+  line-height: var(--size-line-height-xl);
   cursor: pointer;
   color: var(--basic-white);
   background-color: var(--basic-blue);
@@ -323,8 +339,8 @@ img {
 
 .main-header-middle__text {
   font-family: "Cuprum", "Arial", sans-serif;
-  font-size: 16px;
-  line-height: 23px;
+  font-size: calc(var(--size-text-s) + 1px);
+  line-height: calc(var(--size-line-height-xl) - 1px);
   justify-self: start;
   color: var(--basic-red);
 }
@@ -334,67 +350,83 @@ img {
 }
 
 .main-header__contact {
-  font-size: 14px;
+  font-size: calc(var(--size-text-s) - 1px);
   justify-self: center;
   text-align: center;
   color: var(--basic-blue);
 }
 
 .main-header__phone {
-  font-size: 21px;
+  font-size: calc(var(--size-text-m) + 3px);
   color: var(--basic-red);
   border: 3px solid var(--basic-white);
 }
 
-.user-panels__button {
+.user-panel__button {
   color: var(--basic-white);
   background-color: var(--basic-green);
 }
 
-.user-panels__button:hover {
+.user-panel__button:hover {
   color: var(--basic-white);
   background-color: var(--basic-greenlight);
 }
 
-.user-panels__button:active {
+.user-panel__button:active {
   color: rgba(var(--basic-white-rgb), 0.5);
   background-color: var(--basic-green);
 }
 
 /* Main header auth */
 
-.auth__button {
+.auth__user {
+
+}
+
+.auth__login-button {
   color: var(--basic-black);
   background-color: var(--basic-white);
 }
 
-.auth__button:hover {
+.auth__login-button:hover {
   color: var(--basic-red);
   background-color: var(--basic-white);
 }
 
-.auth__button:active {
+.auth__login-button:active {
+  color: var(--basic-grey-197);
+}
+
+.auth__logout-button {
+  color: var(--basic-black);
+  background-color: var(--basic-white);
+}
+
+.auth__logout-button:active {
   color: var(--basic-grey-197);
 }
 
 .auth__item {
   font-family: "Cuprum", "Arial", sans-serif;
-  font-size: 16px;
-  line-height: 18px;
+  font-size: calc(var(--size-text-s) + 1px);
+  line-height: var(--size-line-height-m);
   color: var(--basic-blue);
 }
 
-.auth__link {
+.auth__link_account,
+.auth__link_orders {
   color: var(--basic-blue);
 }
 
 .auth__item:hover,
-.auth__link:hover {
+.auth__link_account:hover,
+.auth__link_orders:hover {
   color: var(--basic-red);
 }
 
 .auth__item:active,
-.auth__link:active {
+.auth__link_account:active,
+.auth__link_orders:hover {
   color: var(--basic-grey-197);
 }
 
@@ -423,8 +455,8 @@ img {
 
 .breadcrumbs {
   color: var(--basic-black);
-  font-size: 13px;
-  line-height: 18px;
+  font-size: calc(var(--size-text-s) - 2px);
+  line-height: var(--size-line-height-m);
   text-transform: uppercase;
 }
 
@@ -439,8 +471,8 @@ img {
 }
 
 .sorting__title {
-  font-size: 13px;
-  line-height: 18px;
+  font-size: calc(var(--size-text-s) - 2px);
+  line-height: var(--size-line-height-m);
   text-transform: uppercase;
 }
 
@@ -485,7 +517,7 @@ img {
 }
 
 .pagination__link {
-  font-size: 13px;
+  font-size: calc(var(--size-text-s) - 2px);
   color: var(--basic-black);
   border: 1px solid var(--basic-grey-229);
   cursor: pointer;
@@ -541,15 +573,15 @@ img {
 
 .catalogs__title {
   font-family: "Cuprum Bold", "Arial", sans-serif;
-  font-size: 24px;
-  line-height: 30px;
+  font-size: var(--size-text-l);
+  line-height: var(--size-line-height-xl);
   color: var(--basic-white);
 }
 
 .new {
   font-family: "Cuprum", "Arial", sans-serif;
-  font-size: 14px;
-  line-height: 18px;
+  font-size: calc(var(--size-text-s) - 1px);
+  line-height: var(--size-line-height-m);
   text-transform: uppercase;
   background-color: var(--basic-red);
   color: var(--basic-white);
@@ -585,7 +617,7 @@ img {
 
 .popular-products__top {
   display: grid;
-  grid-template-columns: repeat(2, max-content);
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-content: space-between;
   background-color: var(--basic-grey-light-240);
@@ -594,6 +626,7 @@ img {
 .popular-products__button {
   background-color: var(--basic-red);
   text-transform: uppercase;
+  justify-self: end;
 }
 
 .popular-products__button:hover {
@@ -608,20 +641,20 @@ img {
 
 .products__title {
   font-family: "PT Sans Bold", Arial, sans-serif;
-  font-size: 18px;
-  line-height: 20px;
+  font-size: var(--size-text-m);
+  line-height: calc(var(--size-line-height-m) + 2px);
   color: var(--basic-black);
 }
 
 .products__old-price {
-  font-size: 17px;
-  line-height: 18px;
+  font-size: calc(var(--size-text-m) - 1px);
+  line-height: var(--size-line-height-m);
   color: var(--basic-grey-169);
 }
 
 .products__price {
-  font-size: 17px;
-  line-height: 18px;
+  font-size: calc(var(--size-text-m) - 1px);
+  line-height: var(--size-line-height-m);
   color: var(--basic-white);
   background-color: var(--basic-red);
 }
@@ -722,12 +755,14 @@ img {
 }
 
 .footer__logo {
-  align-self: flex-start;
+  align-self: start;
+  justify-self: start;
 }
 
 .footer-top__wrapper {
   display: grid;
-  grid-template-columns: max-content 1fr;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
 }
 
 .footer-top__navigation {
@@ -758,8 +793,8 @@ img {
 
 .footer-middle__contact {
   font-family: "Cuprum", "Arial", sans-serif;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: var(--size-text-m);
+  line-height: var(--size-line-height-xl);
 }
 
 .footer-middle-navigation__link {
@@ -789,14 +824,14 @@ img {
 
 .footer__social {
   font-family: "Cuprum", "Arial", sans-serif;
-  font-size: 16px;
-  line-height: 18px;
+  font-size: calc(var(--size-text-s) + 1px);
+  line-height: var(--size-line-height-m);
 }
 
 .footer__copyright {
   font-family: "Cuprum", "Arial", sans-serif;
-  font-size: 16px;
-  line-height: 18px;
+  font-size: calc(var(--size-text-s) + 1px);
+  line-height: var(--size-line-height-m);
   color: var(--basic-white);
   justify-self: end;
 }
@@ -807,8 +842,8 @@ img {
 
 .footer__feedback{
   font-family: "Cuprum", "Arial", sans-serif;
-  font-size: 16px;
-  line-height: 18px;
+  font-size: calc(var(--size-text-s) + 1px);
+  line-height: var(--size-line-height-m);
   color: var(--basic-white);
 }
 
