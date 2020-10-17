@@ -39,14 +39,10 @@
 
         <div class="auth main-header-middle__auth">
           <a href="" class="button auth__logout-button">Равшан Джамшутович</a>
-          <ul class="auth__list">
-            <li class="auth__item">
-              <a class="auth__link_orders" href="">Мои заказы</a>
-            </li>
-            <li class="auth__item">
-              <a class="auth__link_account" href="">Личный кабинет</a>
-            </li>
-          </ul>
+          <div class="auth__button-group">
+            <a class="auth__order-button" href="">Мои заказы</a>
+            <a class="auth__account-button" href="">Личный кабинет</a>
+          </div>
         </div>
       </div>
       <div class="main-header__bottom">
@@ -80,12 +76,11 @@
   </header>
   <main class="page-catalog">
       <div class="container">
-        <h1 class="title page-catalog__title">Перфораторы</h1>
         <div class="breadcrumbs">
           <ul class="list breadcrumbs__list">
             <li class="list__item breadcrumbs__item">
               <a class="breadcrumbs__link" href="index.html">
-                <img src="https://via.placeholder.com/14x12" alt="Главная">
+                <img src="img/icon-home.svg" alt="Главная">
               </a>
             </li>
             <li class="list__item breadcrumbs__item">
@@ -99,34 +94,92 @@
             </li>
           </ul>
         </div>
-        <section class="products">
-          <h2 class="products__title visually-hidden">Список перфораторов</h2>
-          <div class="filter products__filter">
-            <h2 class="filter__title visually-hidden">Фильтр товаров</h2>
-            <!-- Здесь будет форма фильтра -->
+        <h1 class="title page-catalog__title">Перфораторы</h1>
+        <section class="catalog-products">
+          <h2 class="catalog-products__title visually-hidden">Список перфораторов</h2>
+          <div class="filter catalog-products__filter">
+            <h2 class="filter__title">Фильтр:</h2>
+            <form class="filter__form" method="get" action="https://echo.htmlacademy.ru">
+              <fieldset class="filter__item">
+                <legend class="filter__legend">ЦЕНА:</legend>
+                <div class="range-filter">
+                  <div class="range-filter__controls">
+                    <div class="range-filter__scale">
+                      <div class="range-filter__bar" style=" width: 85%; margin-left: 0;"></div>
+                    </div>
+                    <div class="range-filter__toggle range-filter__toggle-min" tabindex="0"></div>
+                    <div class="range-filter__toggle range-filter__toggle-max" tabindex="0"></div>
+                  </div>
+                  <div class="range-filter__price-controls">
+                    <label class="range-filter__min-price">
+                      <input class="range-filter__input-min-price" type="number" name="min-price" value="0">
+                    </label>
+                    —
+                    <label class="range-filter__max-price">
+                      <input class="range-filter__input-max-price" type="number" name="max-price" value="15000">
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="filter__item">
+                <legend class="filter__legend">Производители:</legend>
+                <ul class="filter__list">
+                  <li class="filter__option filter__checkbox">
+                    <input class="visually-hidden filter__input filter__input-checkbox" type="checkbox" name="bosch" id="filter-bosch">
+                    <label class="filter__label-checkbox" for="filter-bosch">BOSCH</label>
+                  </li>
+                  <li class="filter__option filter__checkbox">
+                    <input class="visually-hidden filter__input filter__input-checkbox" type="checkbox" name="interskol" id="filter-interskol">
+                    <label class="filter__label-checkbox" for="filter-interskol">ИНТЕРСКОЛ</label>
+                  </li>
+                  <li class="filter__option filter__checkbox">
+                    <input class="visually-hidden filter__input filter__input-checkbox" type="checkbox" name="makita" id="filter-makita">
+                    <label class="filter__label-checkbox" for="filter-makita">MAKIta</label>
+                  </li>
+                  <li class="filter__option filter__checkbox">
+                    <input class="visually-hidden filter__input filter__input-checkbox" type="checkbox" name="dewalt" id="filter-dewalt">
+                    <label class="filter__label-checkbox" for="filter-dewalt">Dewalt</label>
+                  </li>
+                  <li class="filter__option filter__checkbox">
+                    <input class="visually-hidden filter__input filter__input-checkbox" type="checkbox" name="hitachi" id="filter-hitachi">
+                    <label class="filter__label-checkbox" for="filter-hitachi">Hitachi</label>
+                  </li>
+                </ul>
+              </fieldset>
+              <fieldset class="filter__item">
+                <legend class="filter__legend">ПИТАНИЕ:</legend>
+                <ul class="filter__list">
+                  <li class="filter__option filter__radio">
+                    <input class="visually-hidden filter__input-radio filter__input" type="radio" name="product-group" value="accumulator" id="filter-accumulator">
+                    <label class="filter__label-radio" for="filter-accumulator">Аккумуляторные</label>
+                  </li>
+                  <li class="filter__option filter__radio">
+                    <input class="visually-hidden filter__input-radio filter__input" type="radio" name="product-group" value="Network" id="filter-network" checked>
+                    <label class="filter__label-radio" for="filter-network">Сетевые</label>
+                  </li>
+                </ul>
+              </fieldset>
+              <button type="submit" class="button filter__button">Показать</button>
+            </form>
           </div>
-          <div class="products__catalogs">
-            <div class="sorting">
+          <div class="products catalog-products__products">
+            <div class="sorting sorting_space">
               <span class="sorting__title">Сортировка:</span>
-              <ul class="sorting__list">
+              <ul class="list sorting__list">
                 <li class="sorting__item">
-                  <a class="sorting__link">По цене</a>
+                  <a class="sorting__link sorting__price sorting__link_active">По цене</a>
                 </li>
                 <li class="sorting__item">
-                  <a class="sorting__link" href="#">По типу</a>
+                  <a class="sorting__link sorting__type" href="#">По типу</a>
                 </li>
                 <li class="sorting__item">
-                  <a class="sorting__link" href="#">По функционалу</a>
+                  <a class="sorting__link sorting__func" href="#">По функционалу</a>
                 </li>
                 <li class="sorting__item">
-                  <a class="sorting__link sorting__link_border_none">
-                    <img class="" src="https://via.placeholder.com/11x10" alt="По возрастанию" width="11" height="10">
-                  </a>
+                  <a class="sorting__link sorting__up sorting__link_active" aria-label="По возрастанию"></a>
                 </li>
                 <li class="sorting__item">
-                  <a class="sorting__link sorting__link_border_none">
-                    <img src="https://via.placeholder.com/11x10" alt="По убыванию" width="11" height="10">
-                  </a>
+                  <a class="sorting__link sorting__down" aria-label="По убыванию"></a>
                 </li>
               </ul>
             </div>
@@ -134,7 +187,7 @@
               <li class="list__item products__item products-item">
                 <a class="products-item__link" href="">
                   <div class="products-item__img">
-                    <img src="img/perforator-BOSCH-BFG-6000.png" alt="Перфоратор BOSCH BFG 6000" width="144" height="128">
+                    <img src="img/perforator-BOSCH-BFG-6000.png" alt="Перфоратор BOSCH BFG 6000" width="144" height="128">
                   </div>
                   <h3 class="products-item__title">Перфоратор BOSCH BFG 6000</h3>
                   <span class="products-item__old-price"><del>30500 Р.</del></span>
@@ -225,6 +278,20 @@
                   <h3 class="products-item__title">Перфоратор BOSCH BFG 6000</h3>
                   <span class="products-item__old-price"><del>30500 Р.</del></span>
                   <span class="products-item__price">25500 Р.</span>
+                </a>
+                <div class="product-item__card">
+                  <button class="button product-item__button-buy">Купить</button>
+                  <button class="button product-item__button-bookmark">В закладки</button>
+                </div>
+              </li>
+              <li class="list__item products__item products-item">
+                <a class="products-item__link" href="">
+                  <div class="products-item__img">
+                    <img src="img/perforator-BOSCH-BFG-2000.png" alt="Перфоратор BOSCH BFG 2000" width="127" height="112">
+                  </div>
+                  <h3 class="products-item__title">Перфоратор BOSCH BFG 2000</h3>
+                  <span class="products-item__price">12500 Р.</span>
+                  <span class="products-item__new">new</span>
                 </a>
                 <div class="product-item__card">
                   <button class="button product-item__button-buy">Купить</button>
@@ -247,7 +314,7 @@
               </li>
             </ul>
           </div>
-          <div class="pagination">
+          <div class="pagination catalog-products__pagination">
             <ul class="pagination__list">
               <li class="pagination__item">
                 <a class="pagination__link pagination__link_current">1</a>
@@ -259,17 +326,17 @@
                 <a class="pagination__link" href="#">3</a>
               </li>
               <li class="pagination__item">
-                <a class="pagination__link" href="#">Следующая</a>
+                <a class="pagination__link pagination__link_button_next" href="#">Следующая</a>
               </li>
             </ul>
           </div>
         </section>
       </div>
-      <section class="about-products">
+      <section class="about-products about-products__space">
         <div class="container">
           <h2 class="title about-products__title">Пара слов о перфораторах</h2>
           <p class="about-products__desc">
-            Перфоратор — универсальный строительный инструмент. Предназначен для сверления и долбления отверстий в кирпиче, бетоне и камне.<br>
+            Перфоратор &ndash; универсальный строительный инструмент. Предназначен для сверления и долбления отверстий в кирпиче, бетоне и камне.<br>
             Существуют электромеханические и пневматические перфораторы. Современные модели могут выполнять функции дрели, шуруповерта и отбойного молотка.<br>
             В ассортиментном ряду есть выбор «трехрежимников»: в одном устройстве будут совмещены отбойный молоток и ударная дрель.
           </p>
