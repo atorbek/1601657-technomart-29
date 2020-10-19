@@ -102,12 +102,20 @@
             </div>
             <div class="catalogs__list-item gallery gallery_slider catalogs__slider">
               <div class="gallery__list">
-                <div class="gallery__item item-gallery">
+                <div class="gallery__item gallery__item_active item-gallery">
                   <div class="item-gallery__header">
                     <h3 class="item-gallery__title">Перфораторы</h3>
                     <p class="item-gallery__text">Настоящие мужские игрушки</p>
                   </div>
                   <img src="img/perforators.jpg" alt="Перфораторы" width="620" height="266">
+                  <a class="button item-gallery__button" href="catalog.html">открыть каталог</a>
+                </div>
+                <div class="gallery__item item-gallery">
+                  <div class="item-gallery__header">
+                    <h3 class="item-gallery__title">Дрели</h3>
+                    <p class="item-gallery__text">Соседям на радость!</p>
+                  </div>
+                  <img src="img/drill.jpg" alt="Дрели" width="620" height="266">
                   <a class="button item-gallery__button" href="catalog.html">открыть каталог</a>
                 </div>
                 <div class="gallery__controls gallery-controls">
@@ -258,7 +266,7 @@
               <li class="tabs__tab services__tabs-tab">Гарантия</li>
               <li class="tabs__tab services__tabs-tab">Кредит</li>
             </ul>
-            <div class="tabs__pane services__tabs-pane">
+            <div class="tabs__pane services__tabs-pane tabs__pane_active">
               <div class="tabs__content services__tabs-content services__tabs-content_delivery services-tabs-content">
                 <h3 class="title services-tabs-content__title">Доставка</h3>
                 <p class="services-tabs-content__desc">
@@ -267,6 +275,28 @@
                   Ведь мы неплохо заработаем,<br>
                   поднимая его на ваш этаж!
                 </p>
+              </div>
+            </div>
+            <div class="tabs__pane services__tabs-pane">
+              <div class="tabs__content services__tabs-content services__tabs-content_guarantee services-tabs-content">
+                <h3 class="title services-tabs-content__title">Гарантия</h3>
+                <p class="services-tabs-content__desc">
+                  Если купленный у нас товар поломается или заискрит,<br>
+                  а также в случае пожара, спровоцированного его<br>
+                  возгоранием,  вы всегда можете быть уверены в нашей<br>
+                  гарантии. Мы обменяем сгоревший товар на новый.<br>
+                  Дом уж восстановите как-нибудь сами.
+                </p>
+              </div>
+            </div>
+            <div class="tabs__pane services__tabs-pane">
+              <div class="tabs__content services__tabs-content services__tabs-content_credit services-tabs-content">
+                <h3 class="title services-tabs-content__title">Кредит</h3>
+                <p class="services-tabs-content__desc">
+                  Залезть в долговую яму стало проще!<br>
+                  Кредитные консультанты придут вам на помощь.
+                </p>
+                <a href="" class="button services__tabs-button">Отправить заявку</a>
               </div>
             </div>
           </div>
@@ -391,5 +421,26 @@
           </div>
         </div>
     </footer>
+
+    <section class="modal modal-feedback">
+      <h2 class="visually-hidden">Напишите нам</h2>
+
+      <form class="modal-feedback__form" action="https://echo.htmlacademy.ru" method="post">
+        <p>
+          <label for="modal-feedback-name">Ваше имя:</label>
+          <input id="modal-feedback-name" type="text" name="name" placeholder="Имя Фамилия">
+        </p>
+        <p>
+          <label for="modal-feedback-email">Ваш e-mail:</label>
+          <input id="modal-feedback-email" type="email" name="login" placeholder="email@example.com">
+        </p>
+        <p>
+          <label for="modal-feedback-text">Текст письма:</label>
+          <input id="modal-feedback-text" type="text" name="text" placeholder="В свободной форме">
+        </p>
+        <button class="button" type="submit">Отправить</button>
+      </form>
+    </section>
+
   </body>
 </html>
