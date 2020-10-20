@@ -438,7 +438,7 @@ button:focus {
 
 .modal {
   position: fixed;
-  /*display: none;*/
+  display: none;
   top: 0;
   right: 0;
   bottom: 0;
@@ -537,7 +537,6 @@ button:focus {
 .modal-basket {
   width: 620px;
   height: 282px;
-  /*padding-top: 43px;*/
 }
 
 .modal-basket__button-wrapper {
