@@ -426,20 +426,25 @@
       <h2 class="visually-hidden">Напишите нам</h2>
 
       <form class="modal-feedback__form" action="https://echo.htmlacademy.ru" method="post">
-        <p>
-          <label for="modal-feedback-name">Ваше имя:</label>
-          <input id="modal-feedback-name" type="text" name="name" placeholder="Имя Фамилия">
-        </p>
-        <p>
-          <label for="modal-feedback-email">Ваш e-mail:</label>
-          <input id="modal-feedback-email" type="email" name="login" placeholder="email@example.com">
-        </p>
-        <p>
-          <label for="modal-feedback-text">Текст письма:</label>
-          <input id="modal-feedback-text" type="text" name="text" placeholder="В свободной форме">
-        </p>
-        <button class="button" type="submit">Отправить</button>
+        <div class="modal-feedback__items-wrapper">
+          <p class="modal-feedback__item">
+            <label class="modal-feedback__label" for="modal-feedback-name">Ваше имя:</label>
+            <input class="modal-feedback__input" id="modal-feedback-name" type="text" name="name" placeholder="Имя Фамилия">
+          </p>
+          <p class="modal-feedback__item">
+            <label class="modal-feedback__label" for="modal-feedback-email">Ваш e-mail:</label>
+            <input class="modal-feedback__input" id="modal-feedback-email" type="email" name="login" placeholder="email@example.com">
+          </p>
+          <p class="modal-feedback__item">
+            <label class="modal-feedback__label" for="modal-feedback-text">Текст письма:</label>
+            <textarea class="modal-feedback__textarea" id="modal-feedback-text" name="text" placeholder="В свободной форме"></textarea>
+          </p>
+        </div>
+        <div class="modal-feedback__button-wrapper">
+          <button class="button modal-feedback__button" type="submit">Отправить</button>
+        </div>
       </form>
+      <button class="modal-feedback__close" type="button" aria-label="Закрыть форму обратной связи"></button>
     </section>
 
   </body>
