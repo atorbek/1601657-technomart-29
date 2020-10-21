@@ -60,6 +60,8 @@ body {
   background-repeat: no-repeat;
 }
 
+/* Variable */
+
 :root {
   --basic-white-rgb: 255, 255, 255;
   --basic-white: rgb(var(--basic-white-rgb));
@@ -634,9 +636,10 @@ button:focus {
 }
 
 .main-header__middle {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 321px 1fr 1fr;
+  align-items: start;
+  justify-items: start;
   margin-bottom: 40px;
 }
 
@@ -649,7 +652,9 @@ button:focus {
 }
 
 .main-header-middle__auth {
+  justify-self: end;
   margin-top: 4px;
+  margin-right: 0;
 }
 
 .main-header__contact {
@@ -657,7 +662,7 @@ button:focus {
   line-height: var(--size-line-height-l);
   color: var(--basic-blue);
   text-align: center;
-  margin: 4px 0 0 43px;
+  margin: 4px 0 0 0;
 }
 
 .main-header__phone {
@@ -696,7 +701,7 @@ button:focus {
   color: var(--basic-white);
   line-height: var(--size-line-height-l);
   background-color: var(--basic-dark-blue);
-  padding: 9px 38px 9px 38px;
+  padding: 9px 24px 9px 41px;
 }
 
 .user-panel__button-bookmark:before {
@@ -704,8 +709,8 @@ button:focus {
   content: "";
   width: 15px;
   height: 16px;
-  top: 13px;
-  left: 14px;
+  top: 12px;
+  left: 17px;
   opacity: 0.3;
   background: url("../img/icon-bookmark.svg") no-repeat right top;
 }
@@ -724,7 +729,7 @@ button:focus {
   color: var(--basic-white);
   line-height: var(--size-line-height-l);
   background-color: var(--basic-dark-blue);
-  padding: 9px 23px 9px 35px;
+  padding: 9px 28px 9px 44px;
 }
 
 .user-panel__button-cart:before {
@@ -732,8 +737,8 @@ button:focus {
   content: "";
   width: 14px;
   height: 16px;
-  top: 13px;
-  left: 13px;
+  top: 12px;
+  left: 22px;
   opacity: 0.3;
   background: url("../img/icon-cart.svg") no-repeat right top;
 }
@@ -772,12 +777,13 @@ button:focus {
 
 .auth__login-button {
   position: relative;
+  display: inline-block;
   color: var(--basic-black);
   background-color: var(--basic-white);
   font-size: calc(var(--size-text-m) + 3px);
   line-height: calc(var(--size-line-height-m) + 3px);
-  padding: 10px 22px 11px 46px;
-  margin-right: 10px;
+  padding: 12px 27px 11px 46px;
+  margin-right: 7px;
 }
 
 .auth__login-button:before {
@@ -787,15 +793,16 @@ button:focus {
   height: 19px;
   top: 13px;
   left: 19px;
-  background: url("../img/icon-login.png") no-repeat 0 0;
+  background: url("../img/icon-login.svg") no-repeat 0 0;
 }
 
 .auth__login-button:hover::before {
-  background-position: -22px 0;
+  background: url("../img/icon-login-hover.svg") no-repeat 0 0;
 }
 
 .auth__registry-button {
   position: relative;
+  display: inline-block;
   color: var(--basic-black);
   background-color: var(--basic-white);
   font-size: calc(var(--size-text-m) + 3px);
@@ -828,7 +835,7 @@ button:focus {
   background-color: var(--basic-white);
   font-size: calc(var(--size-text-m) + 3px);
   line-height: calc(var(--size-line-height-m) + 3px);
-  padding: 12px 10px 12px 57px;
+  padding: 10px 10px 12px 57px;
 }
 
 .auth__account-button:before {
@@ -993,7 +1000,7 @@ button:focus {
   border: none;
   border-bottom: 1px solid var(--basic-grey-light-234);
   margin: 0 0 15px;
-  padding: 0 0 26px;
+  padding: 0 0 25px;
 }
 
 .filter__item:last-of-type {
@@ -1024,7 +1031,7 @@ button:focus {
   height: 41px;
   background-color: var(--basic-grey-light-236);
   margin-bottom: 9px;
-  padding-top: 39px;
+  padding-top: 40px;
   padding-right: 20px;
   padding-left: 20px;
   border-radius: 5px;
@@ -1196,8 +1203,8 @@ button:focus {
   line-height: var(--size-line-height-m);
   border: 1px solid var(--basic-grey-229);
   text-transform: uppercase;
-  padding: 10px 80px 10px 78px;
-  margin-top: 11px;
+  padding: 10px 80px 8px 78px;
+  margin-top: 13px;
 }
 
 /* Breadcrumbs */
@@ -1847,9 +1854,9 @@ button:focus {
     linear-gradient(225deg, var(--basic-white) 11%, transparent 11%),
     linear-gradient(315deg, var(--basic-white) 11%, transparent 11%);
   padding: 10px 44px 10px 32px;
-  margin-top: 12px;
+  margin-top: 11px;
   margin-bottom: 11px;
-  margin-left: 15px;
+  margin-left: 11px;
 }
 
 /* Popular manufacturers */
@@ -1891,6 +1898,7 @@ button:focus {
   justify-content: center;
   width: 220px;
   height: 144px;
+  border: 1px solid var(--basic-grey-light-234);
 }
 
 .popular-manufacturers__top {
