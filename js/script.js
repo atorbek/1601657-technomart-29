@@ -25,7 +25,8 @@ document.addEventListener("click", function (e) {
     mapModal.classList.add(cnOpenModal);
   }
 
-  if (e.target.classList.contains(cnCloseModal) && e.target.closest(`.${cnMapModal}`)) {
+  if (e.target.classList.contains(cnCloseModal)
+      && e.target.closest(`.${cnMapModal}`)) {
     e.preventDefault();
     mapModal.classList.remove(cnOpenModal);
   }
@@ -42,14 +43,25 @@ document.addEventListener("click", function (e) {
     }
   }
 
-  if (e.target.classList.contains(cnCloseModal) && e.target.closest(`.${cnFeedbackModal}`)) {
+  if (e.target.classList.contains(cnCloseModal)
+      && e.target.closest(`.${cnFeedbackModal}`)) {
     e.preventDefault();
     feedbackModal.classList.remove(cnOpenModal);
   }
 });
 
 document.addEventListener("keydown", function (e) {
-  if (e.code === 'Escape' && feedbackModal.classList.contains(cnOpenModal)) {
+
+  if (e.code === 'Escape'
+      && mapModal.classList.contains(cnOpenModal)
+      && e.target.closest(`.${cnMapModal}`)) {
+    e.preventDefault();
+    mapModal.classList.remove(cnOpenModal);
+  }
+
+  if (e.code === 'Escape'
+      && feedbackModal.classList.contains(cnOpenModal)
+      && e.target.closest(`.${cnFeedbackModal}`)) {
     e.preventDefault();
     feedbackModal.classList.remove(cnOpenModal);
   }
