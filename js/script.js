@@ -53,15 +53,13 @@ document.addEventListener("click", function (e) {
 document.addEventListener("keydown", function (e) {
 
   if (e.code === 'Escape'
-      && mapModal.classList.contains(cnOpenModal)
-      && e.target.closest(`.${cnMapModal}`)) {
+      && mapModal.classList.contains(cnOpenModal)) {
     e.preventDefault();
     mapModal.classList.remove(cnOpenModal);
   }
 
   if (e.code === 'Escape'
-      && feedbackModal.classList.contains(cnOpenModal)
-      && e.target.closest(`.${cnFeedbackModal}`)) {
+      && feedbackModal.classList.contains(cnOpenModal)) {
     e.preventDefault();
     feedbackModal.classList.remove(cnOpenModal);
   }
