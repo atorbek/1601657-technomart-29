@@ -1874,7 +1874,7 @@ img {
   text-align: center;
   background-color: var(--basic-white);
 }
-.products-item:focus > .product-item__card,
+.products-item:focus-within > .product-item__card,
 .products-item:hover > .product-item__card {
   display: block;
 }
