@@ -1,80 +1,86 @@
-const cnCloseModal = 'modal__close';
-const cnOpenModal = 'modal__show';
-const cnErrorModal = 'modal__error';
-const cnMapButton = 'company-contacts__map';
-const cnFeedbackButton = 'company-contacts__button';
-const cnFeedbackModal = 'modal-feedback';
-const cnMapModal = 'modal-map';
-const feedbackModal = document.querySelector(`.${cnFeedbackModal}`);
-const mapModal = document.querySelector(`.${cnMapModal}`);
+const classNamePopapOpen = 'modal__show';
+const classNamePopapError = 'modal__error';
+
+const mapPopapOpen = document.querySelector(".company-contacts__map");
+const mapPopapClose = document.querySelector(".modal-map__close");
+const mapPopap = document.querySelector(".modal-map");
+
+const feedbackPopapOpen = document.querySelector(".company-contacts__button");
+const feedbackPopapClose = document.querySelector(".modal-feedback__close");
+const feedbackPopap = document.querySelector(".modal-feedback");
+
 const feedbackForm = document.querySelector(".modal-feedback__form");
-const feedbackInputName = document.querySelector(".modal-feedback__input_name");
-const feedbackInputEmail = document.querySelector(".modal-feedback__input_email");
+const feedbackPopapInputName = document.querySelector(".modal-feedback__input_name");
+const feedbackPopapInputEmail = document.querySelector(".modal-feedback__input_email");
+
+function keyDownMapPopapListener (e) {
+  if (e.code === 'Escape') {
+    if (mapPopap.classList.contains(classNamePopapOpen)) {
+      e.preventDefault();
+      mapPopap.classList.remove(classNamePopapOpen);
+    }
+  }
+}
+
+function keyDownFeedbackPopapListener (e) {
+  if (e.code === 'Escape') {
+    if (feedbackPopap.classList.contains(classNamePopapOpen)) {
+      e.preventDefault();
+      feedbackPopap.classList.remove(classNamePopapOpen);
+    }
+  }
+}
 
 try {
-  storage = localStorage.getItem("feedbackInputName");
+  storage = localStorage.getItem("feedbackPopapInputName");
 } catch (err) {
   isStorageSupport = false;
   throw "Local Storage is not support!"
 }
 
-document.addEventListener("click", function (e) {
+mapPopapOpen.addEventListener("click", function (e) {
+  e.preventDefault();
+  mapPopap.classList.add(classNamePopapOpen);
 
-  if (e.target.closest(`.${cnMapButton}`)) {
-    e.preventDefault();
-    mapModal.classList.add(cnOpenModal);
-  }
-
-  if (e.target.classList.contains(cnCloseModal)
-      && e.target.closest(`.${cnMapModal}`)) {
-    e.preventDefault();
-    mapModal.classList.remove(cnOpenModal);
-  }
-
-  if (e.target.classList.contains(cnFeedbackButton)) {
-    e.preventDefault();
-    feedbackModal.classList.add(cnOpenModal);
-
-    if (storage) {
-      feedbackInputName.value = storage;
-      feedbackInputEmail.focus();
-    } else {
-      feedbackInputName.focus();
-    }
-  }
-
-  if (e.target.classList.contains(cnCloseModal)
-      && e.target.closest(`.${cnFeedbackModal}`)) {
-    e.preventDefault();
-    feedbackModal.classList.remove(cnOpenModal);
-  }
+  window.addEventListener("keydown", keyDownMapPopapListener);
 });
 
-document.addEventListener("keydown", function (e) {
+mapPopapClose.addEventListener("click", function (e) {
+  e.preventDefault();
+  mapPopap.classList.remove(classNamePopapOpen);
 
-  if (e.code === 'Escape'
-      && mapModal.classList.contains(cnOpenModal)) {
-    e.preventDefault();
-    mapModal.classList.remove(cnOpenModal);
+  window.removeEventListener("keydown", keyDownMapPopapListener);
+});
+
+feedbackPopapOpen.addEventListener("click", function (e) {
+  e.preventDefault();
+  feedbackPopap.classList.add(classNamePopapOpen);
+
+  if (storage) {
+    feedbackPopapInputName.value = storage;
+    feedbackPopapInputEmail.focus();
+  } else {
+    feedbackPopapInputName.focus();
   }
 
-  if (e.code === 'Escape'
-      && feedbackModal.classList.contains(cnOpenModal)) {
-    e.preventDefault();
-    feedbackModal.classList.remove(cnOpenModal);
-  }
+  window.addEventListener("keydown", keyDownFeedbackPopapListener);
+});
+
+feedbackPopapClose.addEventListener('click', function (e) {
+  e.preventDefault();
+  feedbackPopap.classList.remove(classNamePopapOpen);
+
+  window.removeEventListener("keydown", keyDownFeedbackPopapListener);
 });
 
 /* Validation form */
 feedbackForm.addEventListener("submit", function (e) {
-  if (!feedbackInputName.value || !feedbackInputEmail.value) {
+  if (!feedbackPopapInputName.value || !feedbackPopapInputEmail.value) {
     e.preventDefault();
-    feedbackModal.classList.remove(cnErrorModal);
-    feedbackModal.offsetWidth = feedbackModal.offsetWidth;
-    feedbackModal.classList.add(cnErrorModal);
+    feedbackPopap.classList.add(classNamePopapError);
   } else {
     if (isStorageSupport) {
-      localStorage.setItem("feedbackInputName", feedbackInputName.value);
+      localStorage.setItem("feedbackInputName", feedbackPopapInputName.value);
     }
   }
 });
