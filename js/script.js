@@ -13,23 +13,38 @@ const feedbackForm = document.querySelector(".modal-feedback__form");
 const feedbackPopapInputName = document.querySelector(".modal-feedback__input_name");
 const feedbackPopapInputEmail = document.querySelector(".modal-feedback__input_email");
 
-function keyDownMapPopapListener (e) {
-  if (e.code === 'Escape') {
-    if (mapPopap.classList.contains(classNamePopapOpen)) {
-      e.preventDefault();
-      mapPopap.classList.remove(classNamePopapOpen);
+const buyPopapOpen = document.querySelector(".product-item__button-buy");
+const buyPopapClose = document.querySelector(".modal-basket__close");
+const basketPopap = document.querySelector(".modal-basket");
+
+function keyDownPopapListener (elem) {
+  return (e) =>
+  {
+
+    if (e.code === 'Escape') {
+      if (elem.classList.contains(classNamePopapOpen)) {
+        e.preventDefault();
+        elem.classList.remove(classNamePopapOpen);
+      }
     }
   }
 }
 
-function keyDownFeedbackPopapListener (e) {
-  if (e.code === 'Escape') {
-    if (feedbackPopap.classList.contains(classNamePopapOpen)) {
-      e.preventDefault();
-      feedbackPopap.classList.remove(classNamePopapOpen);
-    }
+const mapListener = keyDownPopapListener(mapPopap);
+const feedbackListener = keyDownPopapListener(feedbackPopap);
+const basketListener = keyDownPopapListener(basketPopap);
+
+function tooglePopap(elem) {
+  return (e) => {
+    e.preventDefault();
+    elem.classList.toggle(classNamePopapOpen);
   }
 }
+
+const toogleMapPopap = tooglePopap(mapPopap);
+const toogleFeedbackPopap = tooglePopap(feedbackPopap);
+const toogleBasketPopap = tooglePopap(basketPopap);
+
 
 try {
   storage = localStorage.getItem("feedbackPopapInputName");
@@ -38,23 +53,28 @@ try {
   throw "Local Storage is not support!"
 }
 
-mapPopapOpen.addEventListener("click", function (e) {
-  e.preventDefault();
-  mapPopap.classList.add(classNamePopapOpen);
+buyPopapOpen.addEventListener("click", function (e) {
+  toogleBasketPopap(e);
+  window.addEventListener("keydown", basketListener);
+});
 
-  window.addEventListener("keydown", keyDownMapPopapListener);
+buyPopapClose.addEventListener("click", function (e) {
+  toogleBasketPopap(e);
+  window.removeEventListener("keydown", basketListener);
+});
+
+mapPopapOpen.addEventListener("click", function (e) {
+  toogleMapPopap(e);
+  window.addEventListener("keydown", mapListener);
 });
 
 mapPopapClose.addEventListener("click", function (e) {
-  e.preventDefault();
-  mapPopap.classList.remove(classNamePopapOpen);
-
-  window.removeEventListener("keydown", keyDownMapPopapListener);
+  toogleMapPopap(e);
+  window.removeEventListener("keydown", mapListener);
 });
 
 feedbackPopapOpen.addEventListener("click", function (e) {
-  e.preventDefault();
-  feedbackPopap.classList.add(classNamePopapOpen);
+  toogleFeedbackPopap(e);
 
   if (storage) {
     feedbackPopapInputName.value = storage;
@@ -63,15 +83,14 @@ feedbackPopapOpen.addEventListener("click", function (e) {
     feedbackPopapInputName.focus();
   }
 
-  window.addEventListener("keydown", keyDownFeedbackPopapListener);
+  window.addEventListener("keydown", feedbackListener);
 });
 
 feedbackPopapClose.addEventListener('click', function (e) {
-  e.preventDefault();
-  feedbackPopap.classList.remove(classNamePopapOpen);
-
-  window.removeEventListener("keydown", keyDownFeedbackPopapListener);
+  toogleFeedbackPopap(e);
+  window.removeEventListener("keydown", feedbackListener);
 });
+
 
 /* Validation form */
 feedbackForm.addEventListener("submit", function (e) {
