@@ -1046,6 +1046,14 @@ img {
   background: url("../img/icon-user-hover.svg") no-repeat 0 0;
 }
 
+.auth__account-button:active::before {
+  background: url("../img/icon-user.svg") no-repeat 0 0;
+}
+
+.auth__account-button:active {
+  color: var(--basic-grey-197);
+}
+
 .auth__logout-button {
   position: relative;
   display: block;
@@ -1068,6 +1076,10 @@ img {
 
 .auth__logout-button:hover::before {
   background: url("../img/icon-logout-hover.svg") no-repeat 0 0;
+}
+
+.auth__logout-button:active::before {
+  background: url("../img/icon-logout.svg") no-repeat 0 0;
 }
 
 .auth__logout-button:active {
@@ -1293,6 +1305,7 @@ img {
   border: none;
   border-radius: 5px;
   background: var(--basic-grey-light-236);
+  -moz-appearance: textfield;
 }
 
 /* Filter list */
@@ -1849,7 +1862,7 @@ img {
 }
 
 .catalogs__button:active {
-  background-color: rgba(var(--basic-extra-dark-grey), 0.3);
+  background-color: rgba(var(--basic-extra-dark-grey-rgb), 0.3);
 }
 
 .catalogs__new {
@@ -1975,8 +1988,7 @@ img {
   padding: 0 15px 8px;
 }
 
-.products-item__link:focus,
-.products-item__link:hover {
+.products-item:hover {
   -webkit-box-shadow: 0 4px 20px rgba(var(--basic-black-rgb), 0.15);
   box-shadow: 0 4px 20px rgba(var(--basic-black-rgb), 0.15);
 }
@@ -2075,6 +2087,8 @@ img {
 
 .product-item__button-buy {
   position: relative;
+  display: inline-block;
+  vertical-align: top;
   color: var(--basic-white);
   line-height: var(--size-line-height-m);
   font-size: calc(var(--size-text-s) - 1px);
@@ -2083,7 +2097,7 @@ img {
   border-radius: 2px;
   -webkit-box-shadow: inset 0 -3px 0 var(--basic-dark-green-54);
   box-shadow: inset 0 -3px 0 var(--basic-dark-green-54);
-  padding: 9px 40px 9px 53px;
+  padding: 9px 41px 9px 52px;
   margin-bottom: 10px;
 }
 
@@ -2107,6 +2121,8 @@ img {
 }
 
 .product-item__button-bookmark {
+  display: inline-block;
+  vertical-align: top;
   color: var(--basic-blue);
   line-height: var(--size-line-height-m);
   font-size: calc(var(--size-text-s) - 1px);
@@ -2114,7 +2130,7 @@ img {
   background-color: transparent;
   border: 3px solid var(--basic-green);
   border-radius: 2px;
-  padding: 8px 28px 6px 26px;
+  padding: 8px 32px 6px 28px;
 }
 
 .product-item__button-bookmark:hover {
@@ -2215,7 +2231,7 @@ img {
 }
 
 .popular-manufacturers__item:active {
-  background: rgba(var(--basic-black-rgb), 0.0001);
+  opacity: 0.5;
 }
 
 .popular-manufacturers__link {

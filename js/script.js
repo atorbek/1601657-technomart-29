@@ -1,5 +1,5 @@
-const classNamePopapOpen = 'modal__show';
-const classNamePopapError = 'modal__error';
+const classNamePopapOpen = "modal__show";
+const classNamePopapError = "modal__error";
 
 const mapPopapOpen = document.querySelector(".company-contacts__map");
 const mapPopapClose = document.querySelector(".modal-map__close");
@@ -13,15 +13,14 @@ const feedbackForm = document.querySelector(".modal-feedback__form");
 const feedbackPopapInputName = document.querySelector(".modal-feedback__input_name");
 const feedbackPopapInputEmail = document.querySelector(".modal-feedback__input_email");
 
-const buyPopapOpen = document.querySelector(".product-item__button-buy");
-const buyPopapClose = document.querySelector(".modal-basket__close");
+const classNameButtonPopapOpen = "product-item__button-buy";
+const classNameBuyPopapClose = "modal-basket__close";
+
 const basketPopap = document.querySelector(".modal-basket");
 
-function keyDownPopapListener (elem) {
-  return (e) =>
-  {
-
-    if (e.code === 'Escape') {
+function keyDownPopapListener(elem) {
+  return (e) => {
+    if (e.code === "Escape") {
       if (elem.classList.contains(classNamePopapOpen)) {
         e.preventDefault();
         elem.classList.remove(classNamePopapOpen);
@@ -53,14 +52,17 @@ try {
   throw "Local Storage is not support!"
 }
 
-buyPopapOpen.addEventListener("click", function (e) {
-  toogleBasketPopap(e);
-  window.addEventListener("keydown", basketListener);
-});
 
-buyPopapClose.addEventListener("click", function (e) {
-  toogleBasketPopap(e);
-  window.removeEventListener("keydown", basketListener);
+document.addEventListener("click", function (e) {
+  if (e.target.classList.contains(classNameButtonPopapOpen)) {
+    toogleBasketPopap(e);
+    window.addEventListener("keydown", basketListener);
+  }
+
+  if (e.target.classList.contains(classNameBuyPopapClose)) {
+    toogleBasketPopap(e);
+    window.removeEventListener("keydown", basketListener);
+  }
 });
 
 mapPopapOpen.addEventListener("click", function (e) {
@@ -86,7 +88,7 @@ feedbackPopapOpen.addEventListener("click", function (e) {
   window.addEventListener("keydown", feedbackListener);
 });
 
-feedbackPopapClose.addEventListener('click', function (e) {
+feedbackPopapClose.addEventListener("click", function (e) {
   toogleFeedbackPopap(e);
   window.removeEventListener("keydown", feedbackListener);
 });
