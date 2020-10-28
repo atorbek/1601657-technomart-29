@@ -52,7 +52,6 @@ try {
   throw "Local Storage is not support!"
 }
 
-
 document.addEventListener("click", function (e) {
   if (e.target.classList.contains(classNameButtonPopapOpen)) {
     toogleBasketPopap(e);
@@ -65,43 +64,54 @@ document.addEventListener("click", function (e) {
   }
 });
 
-mapPopapOpen.addEventListener("click", function (e) {
-  toogleMapPopap(e);
-  window.addEventListener("keydown", mapListener);
-});
+if (mapPopapOpen) {
+  mapPopapOpen.addEventListener("click", function (e) {
+    toogleMapPopap(e);
+    window.addEventListener("keydown", mapListener);
+  });
+}
 
-mapPopapClose.addEventListener("click", function (e) {
-  toogleMapPopap(e);
-  window.removeEventListener("keydown", mapListener);
-});
 
-feedbackPopapOpen.addEventListener("click", function (e) {
-  toogleFeedbackPopap(e);
+if (mapPopapClose) {
+  mapPopapClose.addEventListener("click", function (e) {
+    toogleMapPopap(e);
+    window.removeEventListener("keydown", mapListener);
+  });
+}
 
-  if (storage) {
-    feedbackPopapInputName.value = storage;
-    feedbackPopapInputEmail.focus();
-  } else {
-    feedbackPopapInputName.focus();
-  }
+if (feedbackPopapOpen) {
+  feedbackPopapOpen.addEventListener("click", function (e) {
+    toogleFeedbackPopap(e);
 
-  window.addEventListener("keydown", feedbackListener);
-});
+    if (storage) {
+      feedbackPopapInputName.value = storage;
+      feedbackPopapInputEmail.focus();
+    } else {
+      feedbackPopapInputName.focus();
+    }
 
-feedbackPopapClose.addEventListener("click", function (e) {
-  toogleFeedbackPopap(e);
-  window.removeEventListener("keydown", feedbackListener);
-});
+    window.addEventListener("keydown", feedbackListener);
+  });
+}
+
+if (feedbackPopapClose) {
+  feedbackPopapClose.addEventListener("click", function (e) {
+    toogleFeedbackPopap(e);
+    window.removeEventListener("keydown", feedbackListener);
+  });
+}
 
 
 /* Validation form */
-feedbackForm.addEventListener("submit", function (e) {
-  if (!feedbackPopapInputName.value || !feedbackPopapInputEmail.value) {
-    e.preventDefault();
-    feedbackPopap.classList.add(classNamePopapError);
-  } else {
-    if (isStorageSupport) {
-      localStorage.setItem("feedbackInputName", feedbackPopapInputName.value);
+if (feedbackForm) {
+  feedbackForm.addEventListener("submit", function (e) {
+    if (!feedbackPopapInputName.value || !feedbackPopapInputEmail.value) {
+      e.preventDefault();
+      feedbackPopap.classList.add(classNamePopapError);
+    } else {
+      if (isStorageSupport) {
+        localStorage.setItem("feedbackInputName", feedbackPopapInputName.value);
+      }
     }
-  }
-});
+  });
+}

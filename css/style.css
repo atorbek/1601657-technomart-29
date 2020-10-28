@@ -1537,7 +1537,7 @@ img {
 }
 
 .sorting_space {
-  padding: 10px 16px 10px 20px;
+  padding: 9px 16px 11px 20px;
   margin-bottom: 27px;
 }
 
@@ -1615,7 +1615,7 @@ img {
 
 .sorting__link_up {
   display: inline-block;
-  vertical-align: top;
+  vertical-align: center;
   width: 0;
   height: 0;
   border-style: solid;
@@ -1648,7 +1648,7 @@ img {
 
 .sorting__link_down {
   display: inline-block;
-  vertical-align: top;
+  vertical-align: center;
   width: 0;
   height: 0;
   border-style: solid;
