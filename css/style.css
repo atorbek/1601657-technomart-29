@@ -1972,7 +1972,7 @@ img {
   border: 1px solid var(--basic-grey-light-234);
 }
 
-.products-item__link {
+.products-item__card {
   position: relative;
   min-height: 308px;
   display: -webkit-box;
@@ -2065,7 +2065,7 @@ img {
   height: 173px;
 }
 
-.product-item__card {
+.product-item__popap-card {
   position: absolute;
   display: none;
   -webkit-box-align: center;
@@ -2080,8 +2080,8 @@ img {
   background-color: var(--basic-white);
 }
 
-.products-item:focus-within > .product-item__card,
-.products-item:hover > .product-item__card {
+.products-item:focus-within > .product-item__popap-card,
+.products-item:hover > .product-item__popap-card {
   display: block;
 }
 
